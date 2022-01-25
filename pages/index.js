@@ -1,36 +1,7 @@
 import { Box, Button, Text, TextField, Image } from '@skynexui/components'
+import React from 'react'
+import { useRouter } from 'next/router'
 import appConfig from '../config.json'
-
-function GlobalStyle() {
-  return (
-    <style global jsx>{`
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        list-style: none;
-      }
-      body {
-        font-family: 'Open Sans', sans-serif;
-      }
-      /* App fit Height */
-      html,
-      body,
-      #__next {
-        min-height: 100vh;
-        display: flex;
-        flex: 1;
-      }
-      #__next {
-        flex: 1;
-      }
-      #__next > * {
-        flex: 1;
-      }
-      /* ./App fit Height */
-    `}</style>
-  )
-}
 
 function Title(props) {
   const Tag = props.tag || 'h1'
@@ -61,18 +32,20 @@ function Title(props) {
 // export default HomePage
 
 export default function PaginaInicial() {
-  const username = 'andressavarela'
+  // const username = 'andressavarela'
+  const [username, setUsername] = React.useState('andressavarela')
+  const roteamento = useRouter()
 
   return (
     <>
-      <GlobalStyle />
       <Box
         styleSheet={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           backgroundColor: appConfig.theme.colors.primary[500],
-          backgroundImage: 'url(https://wallpapercave.com/wp/wp5406324.jpg)',
+          backgroundImage:
+            'url(https://imagens.publico.pt/imagens.aspx/1574515?tp=UH&db=IMAGENS&type=GIF&w=1800&act=resize)',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundBlendMode: 'multiply'
@@ -99,6 +72,11 @@ export default function PaginaInicial() {
           {/* Formulário */}
           <Box
             as="form"
+            onSubmit={function (infosDoEvento) {
+              infosDoEvento.preventDefault()
+              roteamento.push('/chat')
+              // window.location.href = '/chat'
+            }}
             styleSheet={{
               display: 'flex',
               flexDirection: 'column',
@@ -121,6 +99,14 @@ export default function PaginaInicial() {
             </Text>
 
             <TextField
+              placeholder="Digite seu nome de usuário"
+              value={username}
+              onChange={function () {
+                console.log('usuário digitou', event.target.value)
+                const valor = event.target.value
+                // isso troca o valor da variável através do React
+                setUsername(valor)
+              }}
               fullWidth
               textFieldColors={{
                 neutral: {
