@@ -2,6 +2,7 @@ import { Box, Button, Text, TextField, Image } from '@skynexui/components'
 import React from 'react'
 import { useRouter } from 'next/router'
 import appConfig from '../config.json'
+import { render } from 'react-dom'
 
 function Title(props) {
   const Tag = props.tag || 'h1'
@@ -32,9 +33,18 @@ function Title(props) {
 // export default HomePage
 
 export default function PaginaInicial() {
-  // const username = 'andressavarela'
   const [username, setUsername] = React.useState('andressavarela')
+  // const [Name, setName] = React.useState('Mario Souto')
   const roteamento = useRouter()
+
+  // fetch(`https://api.github.com/users/${username}`)
+  //   .then(function (serverResponse) {
+  //     return serverResponse.json()
+  //   })
+  //   .then(function (ConvertedResponse) {
+  //     var Name = ConvertedResponse.name
+  //     console.log(Name)
+  //   })
 
   return (
     <>
@@ -106,7 +116,15 @@ export default function PaginaInicial() {
                 const valor = event.target.value
                 // isso troca o valor da variável através do React
                 setUsername(valor)
+                //
               }}
+              // value2={Name}
+              // onChange={function () {
+              //   console.log('usuário digitou', event.target.value2)
+              //   const valor2 = event.target.value2
+              //   setName(valor2)
+              //   // talvez aqui precisasse de um setName(valor2)
+              // }}
               fullWidth
               textFieldColors={{
                 neutral: {
@@ -154,6 +172,17 @@ export default function PaginaInicial() {
               }}
               src={`https://github.com/${username}.png`}
             />
+            <Text
+              variant="body4"
+              styleSheet={{
+                color: appConfig.theme.colors.neutrals[200],
+                backgroundColor: appConfig.theme.colors.neutrals[900],
+                padding: '3px 10px',
+                borderRadius: '1000px'
+              }}
+            >
+              <p>Andressa Varela</p>
+            </Text>
             <Text
               variant="body4"
               styleSheet={{
