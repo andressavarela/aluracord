@@ -1,15 +1,21 @@
 import { Box, Text, TextField, Image, Button } from '@skynexui/components'
 import React from 'react'
 import appConfig from '../config.json'
+import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
 
 export default function ChatPage() {
   const [mensagem, setMensagem] = React.useState('')
   const [listaDeMensagens, setListaDeMensagens] = React.useState([])
+  const router = useRouter()
+  const { username } = router.query
+  const [name, setName] = useState('Loading...')
+  useEffect(() => setName(username), [])
 
   function handleNovaMensagem(novaMensagem) {
     const mensagem = {
       id: listaDeMensagens.length + 1,
-      de: 'andressavarela',
+      de: username,
       texto: novaMensagem
     }
 
@@ -164,7 +170,7 @@ function MessageList(props) {
                   display: 'inline-block',
                   marginRight: '8px'
                 }}
-                src={`https://github.com/andressavarela.png`}
+                src={`https://github.com/${mensagem.de}.png`}
               />
               <Text tag="strong">{mensagem.de}</Text>
               <Text

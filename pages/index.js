@@ -33,18 +33,21 @@ function Title(props) {
 // export default HomePage
 
 export default function PaginaInicial() {
-  const [username, setUsername] = React.useState('andressavarela')
-  // const [Name, setName] = React.useState('Mario Souto')
-  const roteamento = useRouter()
+  const [username, setUsername] = React.useState('')
+  const router = useRouter()
 
-  // fetch(`https://api.github.com/users/${username}`)
-  //   .then(function (serverResponse) {
-  //     return serverResponse.json()
-  //   })
-  //   .then(function (ConvertedResponse) {
-  //     var Name = ConvertedResponse.name
-  //     console.log(Name)
-  //   })
+  const [dadosDoGitHub, setDadosDoGitHub] = React.useState({})
+
+  React.useEffect(() => {
+    fetch(`https://api.github.com/users/` + username)
+      .then(respostaDoServidor => {
+        return respostaDoServidor.json()
+      })
+      .then(respostaConvertida => {
+        console.log('respostaConvertida', respostaConvertida)
+        setDadosDoGitHub(respostaConvertida)
+      })
+  }, [username])
 
   return (
     <>
@@ -84,8 +87,7 @@ export default function PaginaInicial() {
             as="form"
             onSubmit={function (infosDoEvento) {
               infosDoEvento.preventDefault()
-              roteamento.push('/chat')
-              // window.location.href = '/chat'
+              router.push(`/chat?username=${username}`)
             }}
             styleSheet={{
               display: 'flex',
@@ -118,13 +120,6 @@ export default function PaginaInicial() {
                 setUsername(valor)
                 //
               }}
-              // value2={Name}
-              // onChange={function () {
-              //   console.log('usuário digitou', event.target.value2)
-              //   const valor2 = event.target.value2
-              //   setName(valor2)
-              //   // talvez aqui precisasse de um setName(valor2)
-              // }}
               fullWidth
               textFieldColors={{
                 neutral: {
@@ -181,7 +176,7 @@ export default function PaginaInicial() {
                 borderRadius: '1000px'
               }}
             >
-              <p>Andressa Varela</p>
+              <p>{dadosDoGitHub.name}</p>
             </Text>
             <Text
               variant="body4"
@@ -189,6 +184,7 @@ export default function PaginaInicial() {
                 color: appConfig.theme.colors.neutrals[200],
                 backgroundColor: appConfig.theme.colors.neutrals[900],
                 padding: '3px 10px',
+                marginTop: '2.5px',
                 borderRadius: '1000px'
               }}
             >
