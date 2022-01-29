@@ -2,7 +2,6 @@ import { Box, Button, Text, TextField, Image } from '@skynexui/components'
 import React from 'react'
 import { useRouter } from 'next/router'
 import appConfig from '../config.json'
-import { render } from 'react-dom'
 
 function Title(props) {
   const Tag = props.tag || 'h1'
@@ -114,7 +113,6 @@ export default function PaginaInicial() {
               placeholder="Digite seu nome de usuário"
               value={username}
               onChange={function () {
-                console.log('usuário digitou', event.target.value)
                 const valor = event.target.value
                 // isso troca o valor da variável através do React
                 setUsername(valor)

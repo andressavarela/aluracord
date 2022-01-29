@@ -3,10 +3,28 @@ import React from 'react'
 import appConfig from '../config.json'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
+import { createClient } from '@supabase/supabase-js'
 
 export default function ChatPage() {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  )
+
   const [mensagem, setMensagem] = React.useState('')
   const [listaDeMensagens, setListaDeMensagens] = React.useState([])
+
+  React.useEffect(() => {
+    supabase
+      .from('mensagens')
+      .select('*')
+      .order('id', { ascending: false })
+      .then(({ data }) => {
+        console.log('Dados da consulta', data)
+        setListaDeMensagens(data)
+      })
+  }, [])
+
   const router = useRouter()
   const { username } = router.query
   const [name, setName] = useState('Loading...')
@@ -14,22 +32,31 @@ export default function ChatPage() {
 
   function handleNovaMensagem(novaMensagem) {
     const mensagem = {
-      id: listaDeMensagens.length + 1,
       de: username,
       texto: novaMensagem
     }
-
-    setListaDeMensagens([mensagem, ...listaDeMensagens])
+    supabase
+      .from('mensagens')
+      .insert([mensagem])
+      .then(({ data }) => {
+        setListaDeMensagens([data[0], ...listaDeMensagens])
+      })
     setMensagem('')
   }
 
   function removeMensagem(id) {
-    let novaListaDeMensagens = listaDeMensagens.filter(mensagem => {
-      if (mensagem.id !== id) {
-        return mensagem
-      }
-    })
-    setListaDeMensagens(novaListaDeMensagens)
+    supabase
+      .from('mensagens')
+      .delete()
+      .match({ id })
+      .then(() => {
+        let novaListaDeMensagens = listaDeMensagens.filter(mensagem => {
+          if (mensagem.id !== id) {
+            return mensagem
+          }
+        })
+        setListaDeMensagens(novaListaDeMensagens)
+      })
   }
 
   return (
