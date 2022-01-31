@@ -11,7 +11,7 @@ Projeto feito na Imersão React 4 da @alura com @omariosouto e o @peas
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
 <img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white">
 <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white">
-  </div>
+</div>
 
 #
 
