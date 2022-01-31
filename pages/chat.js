@@ -232,8 +232,8 @@ function MessageList(props) {
         flexDirection: 'column-reverse',
         flex: 1,
         color: appConfig.theme.colors.neutrals['000'],
-        marginBottom: '16px',
-        overflow: 'hidden'
+        marginBottom: '16px'
+        // overflow: 'hidden'
       }}
     >
       {props.mensagens.map(mensagem => {
@@ -300,7 +300,13 @@ function MessageList(props) {
               />
             </Box>
             {mensagem.texto.startsWith(':sticker:') ? (
-              <Image src={mensagem.texto.replace(':sticker:', '')} />
+              <Image
+                styleSheet={{
+                  minWidth: '230px',
+                  maxWidth: '30%'
+                }}
+                src={mensagem.texto.replace(':sticker:', '')}
+              />
             ) : (
               mensagem.texto
             )}
