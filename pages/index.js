@@ -19,18 +19,6 @@ function Title(props) {
   )
 }
 
-// function HomePage() {
-//   return (
-//     <div>
-//       <GlobalStyle />
-//       <Title tag="h2">Boas vindas de volta!</Title>
-//       <h2>Discord - Alura Matrix</h2>
-//     </div>
-//   )
-// }
-
-// export default HomePage
-
 export default function PaginaInicial() {
   const [username, setUsername] = React.useState('')
   const router = useRouter()
@@ -43,7 +31,6 @@ export default function PaginaInicial() {
         return respostaDoServidor.json()
       })
       .then(respostaConvertida => {
-        console.log('respostaConvertida', respostaConvertida)
         setDadosDoGitHub(respostaConvertida)
       })
   }, [username])

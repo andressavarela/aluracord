@@ -4,6 +4,7 @@ import appConfig from '../config.json'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { createClient } from '@supabase/supabase-js'
+import { ButtonSendSticker } from '../src/components/ButtonSendSticker'
 
 export default function ChatPage() {
   const supabase = createClient(
@@ -11,36 +12,48 @@ export default function ChatPage() {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   )
 
+  function escutaMensagensEmTempoReal(adicionaMensagem) {
+    return supabase
+      .from('mensagens')
+      .on('INSERT', respostaLive => {
+        adicionaMensagem(respostaLive.new)
+      })
+      .subscribe()
+  }
+
   const [mensagem, setMensagem] = React.useState('')
   const [listaDeMensagens, setListaDeMensagens] = React.useState([])
 
-  React.useEffect(() => {
+  useEffect(() => {
     supabase
       .from('mensagens')
       .select('*')
       .order('id', { ascending: false })
       .then(({ data }) => {
-        console.log('Dados da consulta', data)
         setListaDeMensagens(data)
       })
+    escutaMensagensEmTempoReal(novaMensagem => {
+      setListaDeMensagens(valorAtualDaLista => {
+        return [novaMensagem, ...valorAtualDaLista]
+      })
+    })
   }, [])
 
   const router = useRouter()
+  const usuarioLogado = router.query.username
   const { username } = router.query
   const [name, setName] = useState('Loading...')
   useEffect(() => setName(username), [])
 
   function handleNovaMensagem(novaMensagem) {
     const mensagem = {
-      de: username,
+      de: usuarioLogado,
       texto: novaMensagem
     }
     supabase
       .from('mensagens')
       .insert([mensagem])
-      .then(({ data }) => {
-        setListaDeMensagens([data[0], ...listaDeMensagens])
-      })
+      .then(({ data }) => {})
     setMensagem('')
   }
 
@@ -151,11 +164,16 @@ export default function ChatPage() {
                 styleSheet={{
                   background: 'none',
                   position: 'absolute',
-                  right: '15px',
-                  bottom: '24px',
+                  right: '66px',
+                  bottom: '26.5px',
                   hover: {
                     backgroundColor: appConfig.theme.colors.neutrals[500]
                   }
+                }}
+              />
+              <ButtonSendSticker
+                onStickerClick={sticker => {
+                  handleNovaMensagem(':sticker:' + sticker)
                 }}
               />
             </Box>
@@ -194,7 +212,7 @@ function Header() {
           styleSheet={{
             color: appConfig.theme.colors.neutrals[200],
             hover: {
-              backgroundColor: appConfig.theme.colors.primary[700]
+              backgroundColor: appConfig.theme.colors.primary[600]
             }
           }}
         />
@@ -206,6 +224,7 @@ function Header() {
 function MessageList(props) {
   return (
     <Box
+      id="scrollChat"
       tag="ul"
       styleSheet={{
         overflow: 'auto',
@@ -274,13 +293,17 @@ function MessageList(props) {
                   position: 'absolute',
                   right: '-1px',
                   hover: {
-                    backgroundColor: appConfig.theme.colors.primary[400]
+                    backgroundColor: appConfig.theme.colors.neutrals[500]
                   },
                   top: '2px'
                 }}
               />
             </Box>
-            {mensagem.texto}
+            {mensagem.texto.startsWith(':sticker:') ? (
+              <Image src={mensagem.texto.replace(':sticker:', '')} />
+            ) : (
+              mensagem.texto
+            )}
           </Text>
         )
       })}
