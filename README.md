@@ -17,6 +17,7 @@ Projeto feito na Imersão React 4 da @alura com os instrutores @omariosouto e @p
 
 ## Clique aqui para utilizar o :sparkles:[Aluracord](https://aluracord-andressa.vercel.app/):sparkles:
 
+
 ## Como executar o projeto
 
 Para executar este projeto você precisa ter o [Node.js](https://nodejs.dev) e o [Git](https://git-scm.com) instalados. Além disso, será necessário usar um editor de textos, como o [VSCode](https://code.visualstudio.com) - utilizado nesse projeto - o [Sublime Text](https://www.sublimetext.com/), [Atom](https://atom.io/), [Vim](https://www.vim.org/), [Notepad++](https://notepad-plus-plus.org/), entre outros.
@@ -28,6 +29,7 @@ git clone https://github.com/andressavarela/aluracord.git
 ```
 
 2. Acesse a pasta do projeto
+
 
 3. Instale as dependências
 
