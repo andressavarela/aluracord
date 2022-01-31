@@ -16,7 +16,7 @@ Projeto feito na Imersão React 4 da @alura com os instrutores @omariosouto e @p
 #
 
 ## Link para utilizar o Aluracord
-<a href="https://aluracord-andressa.vercel.app/" target="_blank"> ## Link para utilizar o Aluracord </a>
+<a href="https://aluracord-andressa.vercel.app/" target="_blank">https://aluracord-andressa.vercel.app/</a>
 
 ## Como executar o projeto
 
