@@ -17,12 +17,12 @@ Projeto feito na Imersão React 4 da @alura com @omariosouto e o @peas
 
 ## Como executar o projeto
 
-Para executar o projeto você precisa ter o [Node.js](https://nodejs.dev) e o [Git](https://git-scm.com) instalados na sua maquina. Você também precisará de um editor de textos, eu utilizei o [VSCode](https://code.visualstudio.com).
+Para executar o projeto você precisa ter o [Node.js](https://nodejs.dev) e o [Git](https://git-scm.com) instalados na sua maquina. Além disso, será necessário usar um editor de textos, eu utilizei o [VSCode](https://code.visualstudio.com).
 
 1. Clone esse repositório.
 
 ```
-git clone https://github.com/isaaacwillian/aluracord-lightning.git
+git clone https://github.com/andressavarela/aluracord.git
 ```
 
 2. Acesse a pasta do projeto.
