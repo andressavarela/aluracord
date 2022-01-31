@@ -15,8 +15,7 @@ Projeto feito na Imersão React 4 da @alura com os instrutores @omariosouto e @p
 
 #
 
-## Link para utilizar o Aluracord
-:sparkles:[Clique aqui](https://aluracord-andressa.vercel.app/):sparkles:
+## Clique aqui para utilizar o :sparkles:[Aluracord](https://aluracord-andressa.vercel.app/):sparkles:
 
 ## Como executar o projeto
 
