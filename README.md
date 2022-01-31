@@ -7,16 +7,16 @@ Projeto feito na Imersão React 4 da @alura com os instrutores @omariosouto e @p
 #
 
 <div style="display:inline-block">
-<img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E">
-<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
-<img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white">
-<img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white">
+<img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" target="_blank">
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" target="_blank">
+<img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white" target="_blank">
+<img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" target="_blank">
 </div>
 
 #
 
 ## Link para utilizar o Aluracord
-<a>href="https://aluracord-andressa.vercel.app/" target="_blank" </a>
+<a href="https://aluracord-andressa.vercel.app/" target="_blank"></a>
 
 ## Como executar o projeto
 
