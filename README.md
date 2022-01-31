@@ -1,6 +1,6 @@
 # Aluracord
 
-Projeto feito na Imersão React 4 da @alura com @omariosouto e o @peas
+Projeto feito na Imersão React 4 da @alura com os instrutores @omariosouto e @peas
 
 <img width="1000px" src="./readme/Aluracord.gif"/>
 
