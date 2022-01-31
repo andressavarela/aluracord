@@ -2,7 +2,7 @@
 
 Projeto feito na Imersão React 4 da @alura com @omariosouto e o @peas
 
-<img width="1000px" src="./readme/Aluracord.mp4"/>
+<img width="1000px" src="./readme/Aluracord.gif"/>
 
 #
 
