@@ -2,7 +2,7 @@
 
 Projeto feito na Imersão React 4 da @alura com os instrutores @omariosouto e @peas
 
-<img width="1000px" src="./readme/Aluracord.gif"/>
+<img width="1000px" src="./readme/aluracord.gif"/>
 
 #
 
@@ -17,7 +17,7 @@ Projeto feito na Imersão React 4 da @alura com os instrutores @omariosouto e @p
 
 ## Como executar o projeto
 
-Para executar o projeto você precisa ter o [Node.js](https://nodejs.dev) e o [Git](https://git-scm.com) instalados na sua maquina. Além disso, será necessário usar um editor de textos, eu utilizei o [VSCode](https://code.visualstudio.com).
+Para executar o projeto você precisa ter o [Node.js](https://nodejs.dev) e o [Git](https://git-scm.com) instalados. Além disso, será necessário usar um editor de textos, como o [VSCode](https://code.visualstudio.com) - utilizado nesse projeto - o [Sublime Text](https://www.sublimetext.com/), [Atom](https://atom.io/), [Vim](https://www.vim.org/), [Notepad++](https://notepad-plus-plus.org/), entre outros.
 
 1. Clone esse repositório.
 
