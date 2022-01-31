@@ -15,6 +15,9 @@ Projeto feito na Imersão React 4 da @alura com os instrutores @omariosouto e @p
 
 #
 
+## Link para utilizar o Aluracord
+https://aluracord-andressa.vercel.app/
+
 ## Como executar o projeto
 
 Para executar este projeto você precisa ter o [Node.js](https://nodejs.dev) e o [Git](https://git-scm.com) instalados. Além disso, será necessário usar um editor de textos, como o [VSCode](https://code.visualstudio.com) - utilizado nesse projeto - o [Sublime Text](https://www.sublimetext.com/), [Atom](https://atom.io/), [Vim](https://www.vim.org/), [Notepad++](https://notepad-plus-plus.org/), entre outros.
@@ -38,6 +41,3 @@ npm install
 ```
 npm run dev
 ```
-
-## Link para utilizar o Aluracord
-https://aluracord-andressa.vercel.app/
